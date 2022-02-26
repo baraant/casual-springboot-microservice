@@ -1,17 +1,30 @@
 plugins {
     id 'java'
+    id "io.spring.dependency-management" version '1.0.11.RELEASE'
+    id 'org.springframework.boot' version '2.6.4'
 }
 
-group 'com.github.baraant'
-version '1.0-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+def springBootVersion = '2.6.4'
+
+allprojects {
+    group 'com.github.baraant'
+    version '1.0-SNAPSHOT'
+}
 
 repositories {
     mavenCentral()
 }
 
+dependencyManagement {
+
+}
+
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 test {
